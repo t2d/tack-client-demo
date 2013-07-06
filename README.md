@@ -19,4 +19,5 @@ optional arguments:
 
 
 TACK: http://tack.io  
-tackpy: https://github.com/tack/tackpy
+tackpy: https://github.com/tack/tackpy  
+TLSlite: https://github.com/trevp/tlslite/

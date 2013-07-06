@@ -3,7 +3,6 @@ from __future__ import print_function
 import socket
 from tlslite import TLSConnection, HandshakeSettings, tackpyLoaded
 from TackPin import TackPin
-#from sys import exit
 import argparse
 import shelve
 import time
@@ -108,7 +107,7 @@ if __name__ == "__main__":
     # if no active TACKs in TLS-Connection
     if not usingTACK:
         if haveActivePin:
-            raise SyntaxError("Active PIN, but no active TACK. Connection might be compromised!")
+            raise Error("Active PIN, but no active TACK. Connection might be compromised!")
         elif havePin:
             del store[sockString] # del inactive pin
             print("deleting inactive pin")
