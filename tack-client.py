@@ -127,7 +127,10 @@ if __name__ == "__main__":
         if tack.min_generation < min_generation:
             raise Error("Certificate revoked")
 
-    # TODO: "those two pins MUST reference different public keys"
+    if tackExt.activation_flags == 3:
+        assert tackExt.tacks[0].public_key != tackExt.tacks[1].public_key, "two pins MUST reference different public keys"
+
+    # process pin activation
     if tackExt.activation_flags % 2 == 1:  # 1 and 3
         pins[0] = pinActivation(pins[0], tackExt.tacks[0], min_generation)
     if tackExt.activation_flags >= 2:  # 2 and 3
